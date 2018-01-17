@@ -5,9 +5,9 @@
 # and maximum; this matches the default thread size of Active Record.
 
 
-=begin
+#=begin
 # これは実行環境用
-workers Integer(ENV['WEB_CONCURRENCY'] || 1) # if Rails.env.production?
+workers Integer(ENV['WEB_CONCURRENCY'] || 1) 
 threads_count = Integer(ENV['MAX_THREADS'] || 5)
 threads threads_count, threads_count
 
@@ -23,9 +23,10 @@ on_worker_boot do
   ActiveRecord::Base.establish_connection
 end
 
-=end
+#=end
 
 
+=begin
 
 #
 threads_count = ENV.fetch("RAILS_MAX_THREADS") { 5 }
@@ -75,6 +76,8 @@ environment ENV.fetch("RAILS_ENV") { "development" }
 #   ActiveRecord::Base.establish_connection if defined?(ActiveRecord)
 # end
 #
+
+=end
 
 # Allow puma to be restarted by `rails restart` command.
 plugin :tmp_restart
