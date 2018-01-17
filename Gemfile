@@ -62,8 +62,8 @@ gem 'anemone'
 gem 'poltergeist' # phantomjsが必要 "npm install phantomjs"でインストールした
 gem 'capybara', '~> 2.13'
 
-group :production do
-  gem 'puma-worker-killer' # production環境のpumaのリサイクル
-end
+#group :production do
+#  gem 'puma-worker-killer' # production環境のpumaのリサイクル
+#end
 
 gem 'dotenv-rails', :groups => [:development, :test]
