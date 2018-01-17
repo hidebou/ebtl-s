@@ -6,6 +6,7 @@ module Api
     end
     
     def get_page
+=begin
       if params[:url] =~ /www\.amazon\./
         logger.info("in carwl. params= #{params.to_s}")
         shop_crawl = ShopCrawler.new
@@ -14,7 +15,8 @@ module Api
         result = ""
         log.error("in carwl. url error = #{params[:url]}")
       end
-      
+=end
+      result = "this is get_page test."
       render json: result
     end
 
