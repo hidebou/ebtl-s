@@ -4,6 +4,7 @@ class TopController < ApplicationController
   end
   
   def crawl
-    @msg = "This is crawl page"  
+    @msg = "This is crawl page"
+    render json: @msg
   end
 end
