@@ -5,7 +5,7 @@
 # and maximum; this matches the default thread size of Active Record.
 
 
-#=begin
+=begin
 # これは実行環境用
 workers Integer(ENV['WEB_CONCURRENCY'] || 1) 
 threads_count = Integer(ENV['MAX_THREADS'] || 5)
@@ -33,10 +33,10 @@ end
 #  end
 #  PumaWorkerKiller.start
 #end
-#=end
+=end
 
 
-=begin
+#=begin
 # こっちは開発環境用。Herokuに上げる前にコメントアウトする。
 #
 threads_count = ENV.fetch("RAILS_MAX_THREADS") { 5 }
@@ -87,7 +87,7 @@ environment ENV.fetch("RAILS_ENV") { "development" }
 # end
 #
 
-=end
+#=end
 
 # Allow puma to be restarted by `rails restart` command.
 plugin :tmp_restart
