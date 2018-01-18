@@ -15,6 +15,8 @@ class ShopCrawler
   # 初期化
   def initialize(user_agent: ENV["CRAWL_USER_AGENT"], ajax_wait_time: 10)
     begin
+      @log = Logger.new('./log/shop_crawl.txt', 10, LOG_FILE_SIZE)
+      @log.info('ShopCrawler initialize.')
       @max_wait_time = 1000
       @max_ajax_wait_time = ajax_wait_time
       @session = nil
@@ -32,8 +34,7 @@ class ShopCrawler
 
   # capybaraの初期化
   def init_capybara
-    @log = Logger.new('./log/shop_crawl.txt', 10, LOG_FILE_SIZE)
-
+    @log.info('in init_capybara.')
     @window_width = CAPYBARA_WINDOW_WIDTH 
     @window_height = CAPYBARA_WINDOW_HEIGHT
 
@@ -48,6 +49,7 @@ class ShopCrawler
 
   # Anemoneの初期化
   def init_anemone
+    @log.info('in init_anemone.')  
     @anemone_option = {
       :user_agent => @user_agent,
       :depth_limit => 0,
@@ -103,7 +105,7 @@ class ShopCrawler
 
   # JavaScritpの実行を待ってページを取得する
   def crawl_page_js(url)
-    begin
+    begin    
       @url = url
       @log.debug("in crawl_page_js url=#{@url}")
       @session = create_session if @session.blank?
