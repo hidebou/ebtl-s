@@ -15,7 +15,7 @@ gem 'rails', '~> 5.1.4'
 gem 'sqlite3', group: [:development, :test]
 
 group :production do
-  gem 'pg', '0.20.0'
+  gem 'pg', '0.20.0' # Herokuでは1.0.0が動かないようだ
 end
 
 # Use Puma as the app server
@@ -62,8 +62,8 @@ gem 'anemone'
 gem 'poltergeist' # phantomjsが必要 "npm install phantomjs"でインストールした
 gem 'capybara', '~> 2.13'
 
-#group :production do
-#  gem 'puma-worker-killer' # production環境のpumaのリサイクル
-#end
+group :production do
+  gem 'puma-worker-killer' # production環境のpumaのリサイクル
+end
 
 gem 'dotenv-rails', :groups => [:development, :test]
