@@ -67,3 +67,5 @@ gem 'capybara', '~> 2.13'
 #end
 
 gem 'dotenv-rails', :groups => [:development, :test]
+
+gem 'rails_12factor', group: :production
