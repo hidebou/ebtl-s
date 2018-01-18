@@ -37,7 +37,7 @@ end
 
 
 =begin
-
+# こっちは開発環境用。Herokuに上げる前にコメントアウトする。
 #
 threads_count = ENV.fetch("RAILS_MAX_THREADS") { 5 }
 threads threads_count, threads_count

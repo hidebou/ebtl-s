@@ -4,8 +4,10 @@ Rails.application.routes.draw do
   root to: 'top#index'
 
   get 'top/index'
-  #get 'top/crawl'
   get 'top/crawl', defaults: { format: "json" }
+  get 'crawl/get_page', defaults: { format: "json" }
+
+  
   namespace :api, { format: 'json' } do
     resource :crawl do
       member do 
