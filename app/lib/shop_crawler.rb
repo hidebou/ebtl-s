@@ -14,12 +14,19 @@ class ShopCrawler
   
   # 初期化
   def initialize(user_agent: ENV["CRAWL_USER_AGENT"], ajax_wait_time: 10)
-    @max_wait_time = 1000
-    @max_ajax_wait_time = ajax_wait_time
-    @session = nil
-    @user_agent = user_agent
-    init_capybara
-    init_anemone
+    begin
+      @max_wait_time = 1000
+      @max_ajax_wait_time = ajax_wait_time
+      @session = nil
+      @user_agent = user_agent
+      init_capybara
+      init_anemone
+    
+    rescue => e
+      msg = "Exception in initialize, exception class=#{e.class.to_s}, msg=#{e.to_s}"
+      @log.error(msg)
+      raise e
+    end
   end
 
 
